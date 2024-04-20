@@ -68,4 +68,47 @@ public class DBPasswordHelper extends SQLiteOpenHelper {
         db.insert(TABLE_ACCOUNT, null, values);
         db.close();
     }
+    @SuppressLint("Range")
+    public List<Account> getAllAccounts() {
+        // array of columns to fetch
+        String[] columns = {
+                COLUMN_ACCOUNT_ID,
+                COLUMN_ACCOUNT_TITLE,
+                COLUMN_ACCOUNT_TYPE,
+                COLUMN_ACCOUNT_USERNAME,
+                COLUMN_ACCOUNT_PASSWORD
+        };
+        // sorting orders
+        String sortOrder =
+                COLUMN_ACCOUNT_ID + " ASC";
+        List<Account> accountList = new ArrayList<Account>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        // query the user table
+
+        Cursor cursor = db.query(TABLE_ACCOUNT, //Table to query
+                columns,    //columns to return
+                null,        //columns for the WHERE clause
+                null,        //The values for the WHERE clause
+                null,       //group the rows
+                null,       //filter by row groups
+                sortOrder); //The sort order
+        // Traversing through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                Account account = new Account();
+                account.setId(Integer.parseInt(cursor.getString(cursor.getColumnIndex(COLUMN_ACCOUNT_ID))));
+                account.setTitle(cursor.getString(cursor.getColumnIndex(COLUMN_ACCOUNT_TITLE)));
+                account.setAccountType(cursor.getString(cursor.getColumnIndex(COLUMN_ACCOUNT_TYPE)));
+                account.setUsername(cursor.getString(cursor.getColumnIndex(COLUMN_ACCOUNT_USERNAME)));
+                account.setPassword(cursor.getString(cursor.getColumnIndex(COLUMN_ACCOUNT_PASSWORD)));
+
+                // Adding user record to list
+                accountList.add(account);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        // return accounts list
+        return accountList;
+    }
 }

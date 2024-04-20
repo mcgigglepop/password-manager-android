@@ -17,14 +17,17 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.mcgigglepop.myprofilebox.databinding.FragmentDashboardBinding;
 
+import java.util.List;
+
+import helpers.DBPasswordHelper;
+import models.Account;
+
 public class DashboardFragment extends Fragment {
 
     private FragmentDashboardBinding binding;
-    protected ListAdapter adapter;
-    Cursor cursor;
-    SQLiteDatabase db;
-    EditText et_db;
-    protected ListView lv;
+
+    DBPasswordHelper databaseHelper;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -34,6 +37,8 @@ public class DashboardFragment extends Fragment {
         binding = FragmentDashboardBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        databaseHelper = new DBPasswordHelper(requireContext());
+        List<Account> accountList = databaseHelper.getAllAccounts();
 
 
         return root;
