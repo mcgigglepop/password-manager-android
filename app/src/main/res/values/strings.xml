@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">myprofilebox</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_add_password">Add Password</string>
+
+    <string name="error_message_title">enter title</string>
+    <string name="error_message_account_type">select account type</string>
+    <string name="error_message_username">enter username</string>
+    <string name="error_message_password">enter password</string>
+</resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="account_type_array">
+        <item>Login</item>
+        <item>Address</item>
+        <item>Bank Account</item>
+        <item>Payment Card</item>
+        <item>Birth Certificate</item>
+        <item>Contact</item>
+        <item>Database</item>
+        <item>Drivers License</item>
+        <item>Secure Note</item>
+        <item>File Attachment</item>
+        <item>General</item>
+        <item>Health Insurance</item>
+        <item>Membership</item>
+        <item>Passport</item>
+        <item>Photo</item>
+        <item>Server</item>
+        <item>Software License</item>
+        <item>SSH Key</item>
+        <item>Identity Card</item>
+        <item>API Key</item>
+        <item>Generic Network Account</item>
+        <item>MySQL Account</item>
+        <item>Pin Number</item>
+    </array>
+</resources>
